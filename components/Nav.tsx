@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu} from 'react-icons/ai';
+import { GiPalmTree } from 'react-icons/gi';
 interface INavLink {
     id: number,
     name: string,
@@ -38,7 +39,7 @@ const Nav = () => {
 
     useEffect(() => {
         const handleShadow = () => {
-            if (window.scrollY >= 50 ) {
+            if (window.scrollY >= 30 ) {
                 setShadow(true);
             } else {
                 setShadow(false);
@@ -74,15 +75,14 @@ const Nav = () => {
             >
                 <div className="z-30">
                     <Link href='/' className="flex flex-center gap-2">
-                        <Image 
-                            src='/assets/images/logo.svg'
-                            alt='logo'
-                            width={30}
-                            height={30}
-                            className="object-contain"
-                        />
-                        <p className='logo_text'>
-                            PremierFloridaBNB
+                        <GiPalmTree className='w-[2.5em] h-[2.5em]'/>
+                        <p className='logo_text relative right-4 top-2'>
+                            <span className='orange_gradient'>
+                                 PremierFloridaBNB
+                            </span>
+                            <span className='text-[8px] text-blue-400 absolute  top-3 left-0'>
+                                Working harder for you
+                            </span>
                         </p>
                     </Link>
                 </div>

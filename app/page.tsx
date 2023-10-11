@@ -1,3 +1,7 @@
+import About from '@/components/About';
+import Earth from '@/components/Earth';
+import Partners from '@/components/Partners';
+import Stats from '@/components/Stats';
 import '@/styles/globals.css';
 
 export default function Home() {
@@ -17,45 +21,15 @@ export default function Home() {
         vacation rental management so you can earn more and stress less.
       </p>
 
-      <div className='flex-center gap-8 mt-10 mb-8'>
+      <div className='flex-center gap-8 mt-10 mb-20'>
         <button className='black_btn'>Let's do this</button>
         <button className='outline_btn'>Learn more</button>
       </div>
 
-      MAIN CONTENT
-      Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.
-        Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.
-        Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.
-        Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.
-        Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.
-        Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.
-
-        Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.
-
-
-
-        Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.
-        Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.
-        Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.Evolve partners with you and takes on the time-consuming tasks of
-        vacation rental management so you can earn more and stress less.
+      <Partners/>
+      <Earth />
+      <Stats />
+      <About />
     </section>
   )
 }
