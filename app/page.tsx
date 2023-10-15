@@ -1,5 +1,6 @@
 import About from '@/components/About';
 import CTA from '@/components/CTA';
+import Description from '@/components/Description';
 import Earth from '@/components/Earth';
 import Footer from '@/components/Footer';
 import Partners from '@/components/Partners';
@@ -31,8 +32,9 @@ export default function Home() {
 
       <Partners/>
       <Earth />
-      <Stats />
       <About />
+      <Stats />
+      <Description />
       <Testitominals />
       <CTA/>
       <Footer />

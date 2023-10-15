@@ -8,22 +8,22 @@ AiFillLinkedin } from 'react-icons/ai';
 export const socialMedia = [
   {
     id: 'social-media-1',
-    icon: () => <AiOutlineInstagram  className='text-gray-600 w-5 h-5'/>,
+    icon: () => <AiOutlineInstagram  className='text-gray-600 w-6 h-6'/>,
     link: 'https://www.instagram.com/',
   },
   {
     id: 'social-media-2',
-    icon: () => <AiFillFacebook  className='text-gray-600 w-5 h-5'/>,
+    icon: () => <AiFillFacebook  className='text-gray-600 w-6 h-6'/>,
     link: 'https://www.facebook.com/',
   },
   {
     id: 'social-media-3',
-    icon: () => <AiOutlineTwitter className='text-gray-600 w-5 h-5'/>,
+    icon: () => <AiOutlineTwitter className='text-gray-600 w-6 h-6'/>,
     link: 'https://www.twitter.com/',
   },
   {
     id: 'social-media-4',
-    icon: () => <AiFillLinkedin className='text-gray-600 w-5 h-5'/>,
+    icon: () => <AiFillLinkedin className='text-gray-600 w-6 h-6'/>,
     link: 'https://www.linkedin.com/',
   },
 ];
