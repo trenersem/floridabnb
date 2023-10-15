@@ -74,7 +74,10 @@
 /* Tailwind Styles */
 
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto;
+  @apply relative z-10 flex justify-center items-center flex-col mx-auto;
+}
+.layout {
+  @apply max-w-7xl mx-auto p-4 sm:p-7;
 }
 
 .black_btn {

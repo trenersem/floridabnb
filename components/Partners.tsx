@@ -37,7 +37,7 @@ export const partners = [
 ]
 const Partners = () => {
   return (
-    <div className='mx-10 max-w-6xl w-full px-4'>
+    <div className='mx-10 w-full px-4 layout'>
         <p className='mx-auto max-w-sm text-center text-gray-600 sm:max-w-xl sm:text-lg"'>
             We Lists Your Property on All the Top Rental Sites to Help You Succeed
         </p>

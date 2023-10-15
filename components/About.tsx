@@ -2,11 +2,11 @@ import React from 'react'
 
 const About = () => {
   return (
-       <section className="w-full flex-center flex-col  mb-10 mt-24">
+       <section className="w-full flex-center flex-col mb-10 mt-24 layout">
             <h1 className="font-display text-4xl font-extrabold leading-tight text-black sm:text-5xl sm:leading-tight">
                 Send Stress Packing
             </h1>
-            <div className='flex justify-start items-center gap-5 mt-12 mx-4 sm:flex-row flex-col'>
+            <div className='flex justify-start items-center gap-5 mt-12 sm:flex-row flex-col'>
                 <p className="text-sm text-start text-center flex-1">
                 Traditional short-term rental managers are often local, small businesses with just one or a few people handling everything. They’re typically great with services like cleaning, but lack the marketing and booking expertise you need to make the most from your investment.
                 <br/>

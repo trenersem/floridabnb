@@ -1,10 +1,9 @@
 'use client'
 
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu} from 'react-icons/ai';
-import { GiPalmTree } from 'react-icons/gi';
+import Logo from "./atoms/Logo";
 interface INavLink {
     id: number,
     name: string,
@@ -74,17 +73,7 @@ const Nav = () => {
                 className='flex-between w-full py-3 sm:gap-20  max-w-7xl mx-auto sm:px-16 px-6'
             >
                 <div className="z-30">
-                    <Link href='/' className="flex flex-center gap-2">
-                        <GiPalmTree className='w-[2.5em] h-[2.5em]'/>
-                        <p className='logo_text relative right-4 top-2'>
-                            <span className='orange_gradient'>
-                                 PremierFloridaBNB
-                            </span>
-                            <span className='text-[8px] text-blue-400 absolute  top-3 left-0'>
-                                Working harder for you
-                            </span>
-                        </p>
-                    </Link>
+                    <Logo />
                 </div>
 
                 {/* Desktop NAV */}
@@ -103,7 +92,7 @@ const Nav = () => {
                         <Link
                             type='phone'
                             href='tel:+17542751268'
-                            className="black_btn"
+                            className="outline_btn"
                         >
                             +17542751268
                         </Link>

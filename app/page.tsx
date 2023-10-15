@@ -1,7 +1,10 @@
 import About from '@/components/About';
+import CTA from '@/components/CTA';
 import Earth from '@/components/Earth';
+import Footer from '@/components/Footer';
 import Partners from '@/components/Partners';
 import Stats from '@/components/Stats';
+import Testitominals from '@/components/Testitominals';
 import '@/styles/globals.css';
 
 export default function Home() {
@@ -30,6 +33,9 @@ export default function Home() {
       <Earth />
       <Stats />
       <About />
+      <Testitominals />
+      <CTA/>
+      <Footer />
     </section>
   )
 }

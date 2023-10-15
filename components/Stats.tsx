@@ -26,7 +26,7 @@ const Stats = () => {
                 key={el.id}
                 className='flex flex-col items-center justify-center space-y-2'
             >
-                <p className='class="text-4xl font-bold'>
+                <p className='text-4xl font-bold'>
                     {el.stats}
                 </p>
                 <p className='font-semibold uppercase text-gray-500 md:text-lg'>
