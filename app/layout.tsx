@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Nav from '@/components/Nav';
 import '@/styles/globals.css';
 
@@ -24,6 +25,7 @@ export default function RootLayout({
             <div className='app'>
                 {children}
             </div>
+            <Footer />
           </main>
       </body>
     </html>

@@ -47,6 +47,7 @@ const Partners = () => {
       >
         { partners.map((el) => (
             <div
+                key={el.id}
                 className='flex flex-center justify-self-center md:h-20 h-12'
             >
                 <Image

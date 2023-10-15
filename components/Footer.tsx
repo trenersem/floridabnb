@@ -29,7 +29,7 @@ export const socialMedia = [
 ];
 const Footer = () => {
   return (
-    <footer className='z-10 border-t py-8 w-full'>
+    <footer className='relative z-10 border-t pt-8 py-2 w-full'>
         <div className='layout pt-10'>
             <div className='xl:grid xl:grid-cols-5 xl:gap-8'>
                 <div className='space-y-8 xl:col-span-2'>
@@ -42,7 +42,16 @@ const Footer = () => {
                         Short-Term Rental
                         for Less
                     </p>
-                    <div className='flex items-center space-x-2'>
+
+                </div>
+            </div>
+            <div className='flex justify-between flex-col gap-3 items-center md:flex-row mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24'>
+              <div>
+                <p className='text-xs md:text-sm leading-5 text-gray-500'>
+                    Copyright Ⓒ 2023 PremierFloridaBNB. All Rights Reserved.
+                </p>
+              </div>
+                <div className='flex items-center space-x-2'>
                         {socialMedia.map((el, i) => (
                             <>
                                 <Link
@@ -56,17 +65,8 @@ const Footer = () => {
                         ))}
                     </div>
 
-                </div>
             </div>
-            <div className='mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24'>
-                <p className='text-sm leading-5 text-gray-500'>
-                    Copyright Ⓒ 2023 PremierFloridaBNB. All Rights Reserved.
-                </p>
-
-            </div>
-
         </div>
-      
     </footer>
   )
 }
