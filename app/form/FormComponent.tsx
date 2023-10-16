@@ -2,13 +2,17 @@
 
 import React from 'react'
 import InputField from './InputField';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form, ErrorMessage, } from 'formik';
 import * as Yup from 'yup';
 interface InitialValues {
   typeOfProperty: string;
   currentlyManages: string;
   percentage: string;
-  address: string;
+  country:string;
+  streetAddress: string;
+  city: string;
+  state:string;
+  zip: number;
   bedrooms: string;
   firstName: string;
   lastName: string;
@@ -21,7 +25,11 @@ const FormComponent = () => {
         typeOfProperty: '',
         currentlyManages: '',
         percentage:'',
-        address: '',
+        country:'',
+        streetAddress: '',
+        city: '',
+        state: '',
+        zip: 0,
         bedrooms: '',
         firstName: '',
         lastName: '',
@@ -31,15 +39,26 @@ const FormComponent = () => {
     const onSubmit = (values: InitialValues) => {
         console.log('values', values)
     }
+
     const validationSchema = Yup.object({
         email: Yup.string().required("Email is required").email("Invalid email address"),
         typeOfProperty: Yup.string().required("Required"),
         currentlyManages: Yup.string().required("Required"),
         percentage: Yup.string().required("Required"),
-        address: Yup.string().required("Address is required"),
-        bedrooms: Yup.number().required("Required") .typeError('Must be a number'),
-        firstName: Yup.string().required("Required"),
-        lastName: Yup.string().required("Required"),
+        country: Yup.string().required("Required"),
+        streetAddress: Yup.string().required("Required"),
+        city: Yup.string().required("Required"),
+        state:Yup.string().required("Required"),
+        zip: Yup.number().required("Required"),
+        bedrooms: Yup.number().required("Required").typeError('Must be a number'),
+        firstName: Yup.string()
+            .min(2, 'Too Short!')
+            .max(50, 'Too Long!')
+            .required('Required'),
+        lastName: Yup.string()
+            .min(2, 'Too Short!')
+            .max(50, 'Too Long!')
+            .required('Required'),
         phone: Yup.string()
             .required('Phone number is required')
             .matches(
@@ -54,7 +73,7 @@ const FormComponent = () => {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
     >
-        {() => (
+        {({errors, isValidating}) => (
             <Form className='layout'>
                 <div className="space-y-12">
                     <div className="border-b border-gray-900/10 py-12">
@@ -67,99 +86,115 @@ const FormComponent = () => {
 
                         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="sm:col-span-3">
-                                <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
-                                    What type of property will you rent out?
-                                </label>
-                                <div className="mt-2">
-                                    <select id="country" name="country" autoComplete="country-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                                    <option>My entire vacation home or condo</option>
-                                    <option>No property yet, but I'm looking to buy</option>
-                                    <option>My primary residence</option>
-                                    <option>My timeshare</option>
-                                    <option>A private room in my home</option>
-                                    <option>A guesthouse with a private entrance</option>
-                                    <option>My mobile property, treehouse or campsite</option>
-                                    </select>
-                                </div>
+                                 <InputField 
+                                    label='What type of property will you rent out?'
+                                    id='typeOfProperty'
+                                    type='text'
+                                    autoComplete='typeOfProperty'
+                                    as='select'
+                                    placeholder='Type of property'
+                                    error={!!errors.typeOfProperty}
+                                >
+                                        <option></option>
+                                        <option>My entire vacation home or condo</option>
+                                        <option>No property yet, but I'm looking to buy</option>
+                                        <option>My primary residence</option>
+                                        <option>My timeshare</option>
+                                        <option>A private room in my home</option>
+                                        <option>A guesthouse with a private entrance</option>
+                                        <option>My mobile property, treehouse or campsite</option>
+                                </InputField> 
                             </div>
+
                             <div className="sm:col-span-3">
-                                <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
-                                    Who currently manages your property?
-                                </label>
-                                <div className="mt-2">
-                                    <select id="country" name="country" autoComplete="country-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                <InputField 
+                                    label='Who currently manages your property?'
+                                    id='currentlyManages'
+                                    type='text'
+                                    autoComplete='currentlyManages'
+                                    as='select'
+                                >
+                                     <option></option>
                                     <option>Nobody, I've never rented it out before</option>
                                     <option>I use a property manager</option>
                                     <option>I manage my property on my own</option>
-                                    </select>
-                                </div>
+                                </InputField> 
                             </div>
+
                             <div className="sm:col-span-full">
-                                <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
-                                    What percentage of the year will your property be available to rent?
-                                </label>
-                                <div className="mt-2">
-                                    <select id="country" name="country" autoComplete="country-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                <InputField 
+                                    label='What percentage of the year will your property be available to rent?'
+                                    id='percentage'
+                                    type='text'
+                                    autoComplete='percentage'
+                                    as='select'
+                                >
+                                     <option></option>
                                     <option>Under 10% (0-4 weeks)</option>
                                     <option>10-50% (5-26 weeks)</option>
                                     <option>50-90% (26-47 weeks)</option>
                                     <option>90%+ (Over 47 weeks)</option>
-                                    </select>
-                                </div>
+                                </InputField> 
+                               
                             </div>
-                            {/* <InputField 
-                                label='Username'
-                                id='username'
-                                type='text'
-                                autoComplete='username'
-                            /> */}
-                                                    <div className="sm:col-span-3">
-                        <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">Country</label>
-                        <div className="mt-2">
-                            <select id="country" name="country" autoComplete="country-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                            <option>United States</option>
-                            <option>Canada</option>
-                            <option>Mexico</option>
-                            </select>
-                        </div>
-                        </div>
+                            <div className="sm:col-span-full">
+                                <InputField 
+                                    label='How many bedrooms does your property have?'
+                                    id='bedrooms'
+                                    type='text'
+                                    autoComplete='bedrooms'
+                                />
+                            </div>
+                            
+                            <div className="sm:col-span-3">
+                                    <InputField 
+                                        label='Country'
+                                        id='country'
+                                        type='text'
+                                        autoComplete='percentage'
+                                        as='select'
+                                    >
+                                        <option></option>
+                                        <option>United States</option>
+                                        <option>Canada</option>
+                                        <option>Mexico</option>
+                                    </InputField> 
+                            </div>
 
                             <div className="col-span-full">
-                            <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">Street address</label>
-                            <div className="mt-2">
-                                <input type="text" name="street-address" id="street-address" autoComplete="street-address" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-                            </div>
+                                <InputField 
+                                    label='Street address'
+                                    id='streetAddress'
+                                    type='text'
+                                    autoComplete='streetAddress'
+                                />
                             </div>
 
                             <div className="sm:col-span-2 sm:col-start-1">
-                            <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">City</label>
-                            <div className="mt-2">
-                                <input type="text" name="city" id="city" autoComplete="address-level2" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-                            </div>
-                            </div>
-
-                            <div className="sm:col-span-2">
-                            <label htmlFor="region" className="block text-sm font-medium leading-6 text-gray-900">State / Province</label>
-                            <div className="mt-2">
-                                <input type="text" name="region" id="region" autoComplete="address-level1" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-                            </div>
+                                <InputField 
+                                    label='City'
+                                    id='city'
+                                    type='text'
+                                    autoComplete='city'
+                                />
                             </div>
 
                             <div className="sm:col-span-2">
-                            <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">ZIP / Postal code</label>
-                            <div className="mt-2">
-                                <input type="text" name="postal-code" id="postal-code" autoComplete="postal-code" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-                            </div>
+                                <InputField 
+                                    label='State'
+                                    id='state'
+                                    type='text'
+                                    autoComplete='state'
+                                />
                             </div>
 
-                            <div className="col-span-full">
-                            <label htmlFor="photo" className="block text-sm font-medium leading-6 text-gray-900">Photo</label>
-                            <div className="mt-2 flex items-center gap-x-3">
-                                <svg className="h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
-                                </svg>
-                                <button type="button" className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
-                            </div>
+                            <div className="sm:col-span-2">
+                                 <InputField 
+                                    label='ZIP / Postal code'
+                                    id='zip'
+                                    type='number'
+                                    autoComplete='zip'
+                                />
                             </div>
 
                             <div className="col-span-full">
@@ -167,7 +202,7 @@ const FormComponent = () => {
                             <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                                 <div className="text-center">
                                 <svg className="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                                    <path fillRule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clipRule="evenodd" />
                                 </svg>
                                 <div className="mt-4 flex text-sm leading-6 text-gray-600">
                                     <label htmlFor="file-upload" className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
@@ -189,33 +224,49 @@ const FormComponent = () => {
 
                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div className="sm:col-span-3">
-                        <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">First name</label>
-                        <div className="mt-2">
-                            <input type="text" name="first-name" id="first-name" autoComplete="given-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-                        </div>
+                            <InputField 
+                                id='firstName'
+                                label='First name'
+                                type='text'
+                                autoComplete='given-name'
+                            />
                         </div>
 
                         <div className="sm:col-span-3">
-                        <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">Last name</label>
-                        <div className="mt-2">
-                            <input type="text" name="last-name" id="last-name" autoComplete="family-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-                        </div>
+                            <InputField 
+                                id='lastName'
+                                label='Last name'
+                                type='text'
+                                autoComplete='last-name'
+                            />
                         </div>
 
                         <div className="sm:col-span-4">
-                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">Email address</label>
-                        <div className="mt-2">
-                            <input id="email" name="email" type="email" autoComplete="email" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                            <InputField 
+                                id='email'
+                                label='Email address'
+                                type='text'
+                                autoComplete='email'
+                            />
                         </div>
+                        <div className="sm:col-span-4">
+                            <InputField 
+                                id='phone'
+                                label='Phone'
+                                type='text'
+                                autoComplete='phone'
+                            />
                         </div>
 
                         <div className="col-span-full">
-                            <label htmlFor="about" className="block text-sm font-medium leading-6 text-gray-900">
-                                About
-                            </label>
-                            <div className="mt-2">
-                                <textarea id="about" name="about" rows={3} className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
-                            </div>
+                            <InputField 
+                                id='about'
+                                label='About'
+                                type='text'
+                                autoComplete=''
+                                rows={3}
+                                as="textarea"
+                            />
                             <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
                         </div>
                     </div>
