@@ -37,7 +37,7 @@ const Footer = () => {
                     <Logo  className=''/>
                   </div>
 
-                    <p className="max-w-xs text-sm text-gray-500">
+                    <p className="max-w-xs text-xs text-gray-500">
                         Maximize Your
                         Short-Term Rental
                         for Less
@@ -45,9 +45,9 @@ const Footer = () => {
 
                 </div>
             </div>
-            <div className='flex justify-between flex-col gap-3 items-center md:flex-row mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24'>
+            <div className='flex justify-between flex-col gap-3 items-center md:flex-row mt-6 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-20'>
               <div>
-                <p className='text-xs md:text-sm leading-5 text-gray-500'>
+                <p className='text-xs leading-5 text-gray-500'>
                     Copyright Ⓒ 2023 PremierFloridaBNB. All Rights Reserved.
                 </p>
               </div>
