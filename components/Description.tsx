@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 export const description = [
     {
@@ -34,6 +35,7 @@ interface IAboutItemProps {
 }
 
 const AboutItem = ({title, text, img, i}: IAboutItemProps) => {
+     
     return (
         <div className={`flex w-full justify-around items-center  gap-7 md:gap-14 flex-col-reverse md:${i % 2 === 0 ? 'flex-row-reverse' : 'flex-row'} mb-8 md:mb-10`}>
             <div className='max-w-[370px] max-h-[290px] w-full h-full'>
@@ -47,7 +49,7 @@ const AboutItem = ({title, text, img, i}: IAboutItemProps) => {
                 <p className='font-semibold uppercase text-gray-500 md:text-lg pb-5 text-center md:text-start'>
                     {title}
                 </p>
-                <p className='text-sm text-center flex-1'>
+                <p className='text-sm text-center flex-1 md:text-start'>
                     {text}
                 </p>
             </div>
