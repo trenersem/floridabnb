@@ -72,8 +72,8 @@ const Nav = () => {
             <div
                 className='flex-between w-full py-3 sm:gap-20  max-w-7xl mx-auto sm:px-16 px-6'
             >
-                <div className="z-30">
-                    <Logo />
+                <div className="z-30" onClick={() => setToggleDropDown((prev) => !prev)}>
+                    <Logo/>
                 </div>
 
                 {/* Desktop NAV */}
@@ -109,6 +109,7 @@ const Nav = () => {
                                                 key={link.id}
                                                 href={link.to}
                                                 className="first-letter:flex w-full font-semibold capitalizet py-3"
+                                                onClick={() => setToggleDropDown((prev) => !prev)}
                                             >
                                                 {link.name}
                                             </Link>
