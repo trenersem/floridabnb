@@ -4,12 +4,9 @@ const page = () => {
   return (
        <div className="py-10 px-4 sm:px-8">
       <div className="max-w-5xl mx-auto">
-        <h1 className="head_text  text-center mb-20">
-            <span className="orange_gradient text-center">
-           About Us
-            </span>
-         </h1>
-
+        <h2 className=' text-center mb-10 bg-gradient-to-r from-gray-800 via-gray-500 to-gray-800 bg-clip-text font-display text-4xl font-extrabold leading-tight text-transparent sm:text-5xl sm:leading-tight'>
+               About Us
+        </h2>
         {/* Розділ 1 */}
         <section className="mb-10">
             PremierFloridaBNB is a leading property management company specializing in short-term vacation rentals. We are committed to delivering exceptional service, maximizing occupancy rates, and ensuring a seamless experience for both property owners and guests.

@@ -28,7 +28,7 @@ const InputField = ({ label, id, type, autoComplete, as, rows, children, placeho
           autoComplete={autoComplete}
           rows={rows}
           placeholder={placeholder}
-          className={`block w-full rounded-md border py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:outline-none focus:ring-indigo-400 sm:text-sm sm:leading-6 ${error ? 'border-red-500' : ' border-gray-300' }`}
+          className={`block w-full min-h-[32px] rounded-md border py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:outline-none focus:ring-indigo-400 sm:text-sm sm:leading-6 ${error ? 'border-red-500' : ' border-gray-300' }`}
         >
             {children}
         </Field>
