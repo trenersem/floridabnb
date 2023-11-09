@@ -35,9 +35,10 @@ interface IAboutItemProps {
 }
 
 const AboutItem = ({title, text, img, i}: IAboutItemProps) => {
-    const [isDesktop, setIsDesktop] = React.useState(window.innerWidth >= 768);
+    const [isDesktop, setIsDesktop] = React.useState(false);
 
     React.useEffect(() => {
+        setIsDesktop(window.innerWidth >= 768)
         const handleResize = () => {
         setIsDesktop(window.innerWidth >= 768);
         };
