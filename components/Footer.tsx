@@ -9,7 +9,7 @@ export const socialMedia = [
   {
     id: 'social-media-1',
     icon: () => <AiOutlineInstagram  className='text-gray-600 w-6 h-6'/>,
-    link: 'https://www.instagram.com/',
+    link: 'https://www.instagram.com/premierfloridabnb/',
   },
   {
     id: 'social-media-2',

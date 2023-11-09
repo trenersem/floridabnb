@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { CSSProperties } from 'react'
 export const description = [
     {
         id: 1,
@@ -35,9 +35,29 @@ interface IAboutItemProps {
 }
 
 const AboutItem = ({title, text, img, i}: IAboutItemProps) => {
-     
+    const [isDesktop, setIsDesktop] = React.useState(window.innerWidth >= 768);
+
+    React.useEffect(() => {
+        const handleResize = () => {
+        setIsDesktop(window.innerWidth >= 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+        window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+     const containerStyle: CSSProperties = isDesktop
+        ? { flexDirection: i % 2 === 0 ? 'row-reverse' : 'row' }
+        : {};
+
     return (
-        <div className={`flex w-full justify-around items-center  gap-7 md:gap-14 flex-col-reverse md:${i % 2 === 0 ? 'flex-row-reverse' : 'flex-row'} mb-8 md:mb-10`}>
+        <div
+            className={`flex w-full justify-around items-center  gap-7 md:gap-14 flex-col-reverse md:${i % 2 === 0 ? 'flex-row-reverse' : 'flex-row'} mb-8 md:mb-10`}
+            style={containerStyle}
+        >
             <div className='max-w-[370px] max-h-[290px] w-full h-full'>
                 <img
                     src={`/assets/images/${img}`}

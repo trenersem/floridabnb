@@ -91,10 +91,10 @@ const Nav = () => {
                         </div>
                         <Link
                             type='phone'
-                            href='tel:+17542751268'
+                            href='tel:+17867840643'
                             className="outline_btn"
                         >
-                            +17542751268
+                           (786) 784-0643
                         </Link>
                 </div>
 
