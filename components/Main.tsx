@@ -7,7 +7,7 @@ const Main = () => {
   const router = useRouter();
   return (
     <>
-    <div className='h-[67vh]'>
+    <div className='h-[77vh]'>
 
       <h1 className="head_text  text-center">
           Maximize Your {' '}
