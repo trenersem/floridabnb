@@ -59,7 +59,7 @@ const Testitominals = () => {
         </div>
 
         <div className='hidden space-y-6 py-8 sm:block sm:columns-2 sm:gap-6 lg:columns-3'>
-            {propertyReviews && propertyReviews.map((el: any) => (
+            {/* {propertyReviews && propertyReviews.map((el: any) => (
                 <div className='relative lg:top-12'>
                     <div className='not-prose break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter relative lg:top-12'>
                         <div>
@@ -80,7 +80,7 @@ const Testitominals = () => {
                     </div>
 
                 </div>
-            ))}
+            ))} */}
         </div>
       
     </section>
