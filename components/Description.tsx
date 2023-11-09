@@ -56,7 +56,7 @@ const AboutItem = ({title, text, img, i}: IAboutItemProps) => {
 
     return (
         <div
-            className={`flex w-full justify-around items-center  gap-7 md:gap-14 flex-col-reverse md:${i % 2 === 0 ? 'flex-row-reverse' : 'flex-row'} mb-8 md:mb-10`}
+            className={`flex w-full justify-around items-center  gap-7 md:gap-14 flex-col-reverse mb-8 md:mb-10`}
             style={containerStyle}
         >
             <div className='max-w-[370px] max-h-[290px] w-full h-full'>
