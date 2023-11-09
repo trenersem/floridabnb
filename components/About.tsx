@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div className='flex flex-col md:flex-row gap-10 layout min-h-[70vh] mt-28'>
+    <div className='flex flex-col md:flex-row gap-10 layout mb-14 mt-14 md:mt-24 md:md-24'>
             <div className='max-w-[570px] max-h-[390px] w-full h-full mt-10'>
                 <img
                     src={`https://www-vacasa.imgix.net/people_fatherson_S.jpeg?ar=1600%3A1200&auto=format%2Ccompress&crop=focalpoint&fit=crop&fp-x=0.24&fp-y=0.41&fp-z=1&ixlib=python-3.2.1&q=45&w=1080`}

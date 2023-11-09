@@ -3,7 +3,7 @@ import Logo from './atoms/Logo';
 import Link from 'next/link';
 import Image from 'next/image';
 import { AiOutlineInstagram, AiOutlineTwitter,AiFillFacebook,
-AiFillLinkedin } from 'react-icons/ai';
+AiOutlineMail } from 'react-icons/ai';
 
 export const socialMedia = [
   {
@@ -23,8 +23,8 @@ export const socialMedia = [
   },
   {
     id: 'social-media-4',
-    icon: () => <AiFillLinkedin className='text-gray-600 w-6 h-6'/>,
-    link: 'https://www.linkedin.com/',
+    icon: () => <AiOutlineMail className='text-gray-600 w-6 h-6'/>,
+    link: 'mailto:info@premierfloridabnb.com',
   },
 ];
 const Footer = () => {

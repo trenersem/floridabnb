@@ -38,7 +38,11 @@ export const partners = [
 const Partners = () => {
   return (
     <div className='mx-10 w-full px-4 layout'>
-        <p className='mx-auto max-w-sm text-center text-gray-600 sm:max-w-xl sm:text-lg"'>
+        <h2 className='bg-gradient-to-r from-gray-800 via-gray-500 to-gray-800 bg-clip-text font-display text-center text-3xl font-extrabold leading-tight text-transparent sm:text-4xl sm:leading-tight my-8'>
+
+          Be everywhere guests are looking and booking
+        </h2>
+        <p className='mx-auto max-w-sm text-center text-gray-600 sm:text-lg sm:max-w-xl "'>
             We Lists Your Property on All the Top Rental Sites to Help You Succeed
         </p>
       <a
