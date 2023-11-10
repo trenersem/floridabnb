@@ -21,8 +21,53 @@ const options = {
   headers: headers,
 };
 
+const propertyReviews = [
+    {
+        id: 1,
+        image:'testitominals.png',
+        link:'',
+    
+    },
+    {
+        id: 2,
+        image:'testitominals-2.png',
+        link:'',
+    
+    },
+    {
+        id: 3,
+        image:'testitominals-3.png',
+        link:'',
+    
+    },
+    {
+        id: 4,
+        image:'testitominals-4.png',
+        link:'',
+    },
+    {
+        id: 5,
+        image:'testitominals-5.png',
+        link:'',
+    },
+    {
+        id: 6,
+        image:'testitominals-6.png',
+        link:'',
+    },
+    {
+        id: 7,
+        image:'testitominals-7.png',
+        link:'',
+    },
+    {
+        id: 8,
+        image:'testitominals-8.png',
+        link:'',
+    },
+]
+
 const Testitominals = () => {
-    const [propertyReviews, setPropertyReviews] = useState();
     // React.useEffect(() => {
 
     //     const getData = async () => {
@@ -58,11 +103,11 @@ const Testitominals = () => {
             </p>
         </div>
 
-        <div className='hidden space-y-6 py-8 sm:block sm:columns-2 sm:gap-6 lg:columns-3'>
-            {/* {propertyReviews && propertyReviews.map((el: any) => (
-                <div className='relative lg:top-12'>
-                    <div className='not-prose break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter relative lg:top-12'>
-                        <div>
+        <div className='space-y-6 py-8 sm:block sm:columns-2 sm:gap-6 lg:columns-3'>
+            {propertyReviews.map(({id, image, link}: any) => (
+                <div className='relative lg:top-12' key={id}>
+                    <div className='not-prose break-inside-avoid rounded-lg border bg-white border-gray-300 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter relative lg:top-12'>
+                        {/* <div>
                             <div className='flex items-center justify-between'>
                                 <div className='flex items-center space-x-2'>
                                     <img className='h-10 w-10 overflow-hidden border border-gray-200 transition-all ease-in-out hover:scale-105 rounded-md blur-0'/>
@@ -76,11 +121,12 @@ const Testitominals = () => {
 
                                 </p>
                             </div>
-                        </div>
+                        </div> */}
+                         <img src={`/assets/images/${image}`}  alt=''/>
                     </div>
 
                 </div>
-            ))} */}
+            ))}
         </div>
       
     </section>
