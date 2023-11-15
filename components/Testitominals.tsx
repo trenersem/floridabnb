@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';
 import React, { useState } from 'react'
 
 const airbnbID = [
@@ -25,68 +26,74 @@ const propertyReviews = [
     {
         id: 1,
         image:'testitominals.png',
-        link:'',
+        link:'https://www.airbnb.ca/users/show/474354053',
     
     },
     {
         id: 2,
         image:'testitominals-2.png',
-        link:'',
+        link:'https://www.airbnb.ca/users/show/474354053',
     
     },
     {
         id: 3,
         image:'testitominals-3.png',
-        link:'',
+        link:'https://www.airbnb.ca/users/show/474354053',
     
     },
     {
         id: 4,
         image:'testitominals-4.png',
-        link:'',
+        link:'https://www.airbnb.ca/users/show/474354053',
     },
     {
         id: 5,
         image:'testitominals-5.png',
-        link:'',
+        link:'https://www.airbnb.ca/users/show/474354053',
     },
     {
         id: 6,
         image:'testitominals-6.png',
-        link:'',
+        link:'https://www.airbnb.ca/users/show/474354053',
     },
     {
         id: 7,
         image:'testitominals-7.png',
-        link:'',
+        link:'https://www.airbnb.ca/users/show/474354053',
     },
     {
         id: 8,
         image:'testitominals-8.png',
-        link:'',
+        link:'https://www.airbnb.ca/users/show/474354053',
+    },
+    {
+        id: 9,
+        image:'testitominals-9.png',
+        link:'https://www.airbnb.ca/users/show/474354053',
+    },
+    {
+        id: 10,
+        image:'testitominals-10.png',
+        link:'https://www.airbnb.ca/users/show/474354053',
+    },
+    {
+        id: 11,
+        image:'testitominals-11.png',
+        link:'https://www.airbnb.ca/users/show/474354053',
+    },
+    {
+        id: 12,
+        image:'testitominals-12.png',
+        link:'https://www.airbnb.ca/users/show/474354053',
+    },
+    {
+        id: 13,
+        image:'testitominals-13.png',
+        link:'https://www.airbnb.ca/users/show/474354053',
     },
 ]
 
 const Testitominals = () => {
-    // React.useEffect(() => {
-
-    //     const getData = async () => {
-    //         try {
-    //             const response = await fetch(url, options);
-    //             if (!response.ok) {
-    //                 throw new Error(`HTTP error! Status: ${response.status}`);
-    //         }
-
-    //         const data = await response.json();
-    //         setPropertyReviews(data);
-    //         console.log(data);
-
-    //         } catch (error) {
-    //           console.error(error);
-    //         }
-    //     }
-    //     getData()
-    // }, [])
   return (
     <section className='mx-auto w-full max-w-screen-xl px-2.5 lg:px-20 pt-20'>
         <div className='mx-auto max-w-md text-center sm:max-w-xl'>
@@ -103,26 +110,18 @@ const Testitominals = () => {
             </p>
         </div>
 
-        <div className='space-y-6 py-8 sm:block sm:columns-2 sm:gap-6 lg:columns-3'>
+        <div className='space-y-6 py-8 sm:block sm:columns-2 sm:gap-6 lg:columns-3 mb-20'>
             {propertyReviews.map(({id, image, link}: any) => (
                 <div className='relative lg:top-12' key={id}>
-                    <div className='not-prose break-inside-avoid rounded-lg border bg-white border-gray-300 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter relative lg:top-12'>
-                        {/* <div>
-                            <div className='flex items-center justify-between'>
-                                <div className='flex items-center space-x-2'>
-                                    <img className='h-10 w-10 overflow-hidden border border-gray-200 transition-all ease-in-out hover:scale-105 rounded-md blur-0'/>
-                                </div>
-                            </div>
-                            <div className="mb-2 mt-4 truncate whitespace-pre-wrap text-[15px] text-gray-700">
-                                <a className='font-normal text-[rgb(29,161,242)] no-underline'>
-
-                                </a>
-                                <p>
-
-                                </p>
-                            </div>
-                        </div> */}
-                         <img src={`/assets/images/${image}`}  alt=''/>
+                    <div
+                        className='not-prose break-inside-avoid rounded-lg border bg-white border-gray-300 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter relative lg:top-12 cursor-pointer hover:scale-105'
+                    >
+                        <Link
+                            href={link}
+                            target='_blank'
+                        >
+                            <img src={`/assets/images/${image}`}  alt=''/>
+                        </Link>
                     </div>
 
                 </div>
